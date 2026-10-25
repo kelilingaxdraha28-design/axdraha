@@ -1,141 +1,771 @@
-
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXDRAHA | Official Website</title>
+    <meta name="theme-color" content="#080c20">
+
+    <title>AXDRAHA | Official Profile</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <style>
+        :root {
+            --bg: #050a1c;
+            --card: rgba(12, 25, 55, 0.85);
+            --purple: #a855f7;
+            --cyan: #22d3ee;
+            --pink: #ff0755;
+            --white: #f8fafc;
+            --muted: #aab6d3;
+            --border: rgba(116, 151, 255, 0.24);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #080812, #241044, #071b35);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            background:
+                radial-gradient(ellipse at 10% 10%, #32105b 0%, transparent 32%),
+                radial-gradient(ellipse at 90% 45%, #092b54 0%, transparent 35%),
+                var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.7;
         }
 
-        .container {
-            max-width: 600px;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 17px 7%;
+            background: rgba(5, 10, 28, 0.92);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(16px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            font-style: italic;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .section {
+            width: min(1100px, 90%);
+            margin: auto;
+            padding: 75px 0;
+            scroll-margin-top: 65px;
+        }
+
+        .hero {
+            min-height: 610px;
+            width: min(1100px, 90%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: 55px;
+            padding: 70px 0;
+        }
+
+        .photo-frame {
+            position: relative;
+            max-width: 390px;
             width: 100%;
-            padding: 40px 25px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            box-shadow: 0 0 30px #8b5cf655;
+            margin: auto;
+            padding: 8px;
+            border-radius: 35px;
+            background: linear-gradient(
+                145deg, var(--purple), #162c72, var(--cyan)
+            );
+            box-shadow: 0 0 50px #6d28d933;
+            transform: rotate(-2deg);
         }
 
-        .avatar {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #a855f7, #06b6d4);
-            box-shadow: 0 0 25px #8b5cf6;
-            font-size: 50px;
-            font-weight: bold;
+        .photo {
+            display: block;
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 29px;
+            background: #111c3a;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            padding: 12px;
+            border-radius: 14px;
+            background: rgba(5, 10, 28, 0.85);
+            backdrop-filter: blur(10px);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            color: var(--cyan);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
-            letter-spacing: 4px;
-            color: #c084fc;
+            margin: 10px 0;
+            font-size: clamp(43px, 6vw, 76px);
+            line-height: 1.12;
+            font-weight: 800;
+            overflow-wrap: anywhere;
         }
 
-        .subtitle {
-            color: #67e8f9;
+        .gradient-text {
+            background: linear-gradient(90deg, #c084fc, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .real-name {
+            color: #d8e5ff;
+            letter-spacing: 7px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .roles {
+            margin: 12px 0 22px;
+            color: var(--cyan);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-description {
+            max-width: 540px;
+            margin-bottom: 27px;
+            color: var(--muted);
             font-size: 14px;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
         }
 
-        p {
-            color: #dddddd;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 30px;
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
         }
 
-        .youtube {
-            display: inline-block;
-            padding: 14px 25px;
-            background: #ff0033;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 12px 21px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #e9004f, #ff174f);
             color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 10px;
-            transition: 0.3s;
+            border-color: transparent;
+            box-shadow: 0 5px 25px #ff075533;
         }
 
-        .youtube:hover {
-            background: #cc0029;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #ff003366;
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.04);
         }
 
-        footer {
-            margin-top: 30px;
-            color: #999999;
+        .section-heading {
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            margin-top: 6px;
+            font-size: clamp(28px, 4vw, 39px);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 22px;
+        }
+
+        .card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--card);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            margin-bottom: 13px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .signature {
+            display: inline-block;
+            margin-top: 20px;
+            color: #c084fc;
+            font-size: 26px;
+            font-style: italic;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
             font-size: 13px;
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 32px;
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            text-align: right;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .hobby-card {
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--card);
+            transition: 0.25s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple);
+        }
+
+        .hobby-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #25134d, #0a3153);
+            font-size: 45px;
+        }
+
+        .hobby-card h3 {
+            margin-bottom: 7px;
+            font-size: 16px;
+        }
+
+        .hobby-card p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--card);
+            transition: 0.25s;
+        }
+
+        .social-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--cyan);
+        }
+
+        .social-icon {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #7525d5, #ec176a);
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .social-card h3 {
+            font-size: 14px;
+        }
+
+        .social-card p {
+            color: var(--muted);
+            font-size: 11px;
+            overflow-wrap: anywhere;
+        }
+
+        .youtube-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 25px;
+            padding: 35px;
+            border: 1px solid #ff075555;
+            border-radius: 24px;
+            background: linear-gradient(
+                115deg,
+                rgba(255, 7, 85, 0.09),
+                rgba(24, 46, 98, 0.6)
+            );
+        }
+
+        .youtube-panel h2 {
+            margin: 8px 0;
+            font-size: 28px;
+        }
+
+        .youtube-panel p {
+            margin-bottom: 20px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .youtube-mark {
+            font-size: 56px;
+        }
+
+        footer {
+            margin-top: 35px;
+            padding: 30px 5%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: var(--cyan);
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                text-align: center;
             }
 
-            .container {
-                padding: 30px 18px;
+            .photo-frame {
+                max-width: 300px;
+            }
+
+            .photo {
+                height: 330px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hobby-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .navbar {
+                padding: 14px 5%;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 13px;
+                font-size: 11px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .hobby-grid {
+                gap: 12px;
+            }
+
+            .hobby-card {
+                padding: 12px;
+            }
+
+            .youtube-panel {
+                grid-template-columns: 1fr;
+                padding: 25px;
+                text-align: center;
+            }
+
+            .info-list li {
+                font-size: 12px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
 
-        <div class="avatar">A</div>
+    <!-- NAVIGASI -->
+    <nav class="navbar">
+        <a href="#home" class="logo">AXDRAHA.</a>
 
-        <h1>AXDRAHA</h1>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#hobby">Hobi</a></li>
+            <li><a href="#social">Sosial Media</a></li>
+            <li><a href="#youtube">YouTube</a></li>
+        </ul>
+    </nav>
 
-        <div class="subtitle">YOUTUBE CONTENT CREATOR</div>
+    <!-- HALAMAN UTAMA -->
+    <header class="hero" id="home">
 
+        <div class="photo-frame">
+            <!-- Letakkan foto milikmu di folder yang sama,
+                 lalu beri nama foto-aaron.jpg -->
+            <img
+                src="PP_Aron.jpg"
+                alt="Foto profil Aaron"
+                class="photo"
+                onerror="this.style.display='none';
+                this.nextElementSibling.style.display='grid';">
+
+            <div class="photo"
+                 style="display:none;place-items:center;
+                 font-size:90px;color:#a855f7;">
+                👤
+            </div>
+
+            <div class="photo-caption">
+                ⚽ Aaron Gabriel Sahputra | Football Lover
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="eyebrow">Welcome to my website</div>
+
+            <h1>
+                <span class="gradient-text">AXDRAHA</span>
+            </h1>
+
+            <div class="real-name">A A R O N</div>
+
+            <div class="roles">
+                STUDENT &nbsp; | &nbsp; FOOTBALL LOVER
+                &nbsp; | &nbsp; CONTENT CREATOR
+            </div>
+
+            <p class="hero-description">
+                Halo semuanya! 👋 Selamat datang di website resmi
+                AXDRAHA! Aku Aaron, seorang pelajar yang suka
+                sepak bola, bermain game, dan membuat konten YouTube.
+                Terima kasih sudah berkunjung!
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-primary"
+                   href="https://www.youtube.com/@axdraha-b9l"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ▶ SUBSCRIBE AXDRAHA
+                </a>
+
+                <a class="btn btn-outline" href="#about">
+                    Kenali Aku →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BIODATA -->
+    <section class="section" id="about">
+        <div class="section-heading">
+            <div class="eyebrow">01 — About Me</div>
+            <h2>Kenalan <span class="gradient-text">Yuk!</span></h2>
+        </div>
+
+        <div class="about-grid">
+            <article class="card">
+                <h3>Halo, aku Aaron! 👋</h3>
+
+                <p>
+                    Aku menggunakan nama AXDRAHA di dunia online.
+                    Aku suka sepak bola, gaming, dan membuat konten.
+                    Website ini adalah tempat untuk memperkenalkan
+                    profil, hobi, dan media sosialku.
+                </p>
+
+                <div class="signature">Aaron ✦</div>
+            </article>
+
+            <article class="card">
+                <h3>👤 Data Diri</h3>
+
+                <ul class="info-list">
+                    <li>
+                        <span class="info-label">Nama</span>
+                        <span class="info-value">Aaron</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Nama Online</span>
+                        <span class="info-value">AXDRAHA</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Sekolah</span>
+                        <span class="info-value">
+                            SD Katolik Santo Paulus
+                        </span>
+                    </li>
+                    <li>
+                        <span class="info-label">Kota Sekolah</span>
+                        <span class="info-value">Bojonegoro</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Hobi</span>
+                        <span class="info-value">Sepak Bola ⚽</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Kesukaan</span>
+                        <span class="info-value">Gaming & YouTube</span>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <!-- HOBI -->
+    <section class="section" id="hobby">
+        <div class="section-heading">
+            <div class="eyebrow">02 — My Interests</div>
+            <h2>Hobi & <span class="gradient-text">Kesukaan</span></h2>
+        </div>
+
+        <div class="hobby-grid">
+            <article class="hobby-card">
+                <div class="hobby-icon">⚽</div>
+                <h3>Sepak Bola</h3>
+                <p>
+                    Aku suka sepak bola karena seru,
+                    menantang, dan mengajarkan kerja sama tim.
+                </p>
+            </article>
+
+            <article class="hobby-card">
+                <div class="hobby-icon">🎮</div>
+                <h3>Gaming</h3>
+                <p>
+                    Bermain game adalah salah satu aktivitas
+                    favoritku untuk bersenang-senang.
+                </p>
+            </article>
+
+            <article class="hobby-card">
+                <div class="hobby-icon">📹</div>
+                <h3>Content Creator</h3>
+                <p>
+                    Aku suka berbagi pengalaman bermain game
+                    melalui video YouTube.
+                </p>
+            </article>
+
+            <article class="hobby-card">
+                <div class="hobby-icon">📚</div>
+                <h3>Sekolah</h3>
+                <p>
+                    Aku belajar dan mengembangkan diri di
+                    SD Katolik Santo Paulus Bojonegoro.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- MEDIA SOSIAL -->
+    <section class="section" id="social">
+        <div class="section-heading">
+            <div class="eyebrow">03 — Find Me Online</div>
+            <h2>Follow My <span class="gradient-text">Social Media</span></h2>
+        </div>
+
+        <div class="social-grid">
+
+            <a class="social-card"
+               href="https://www.instagram.com/roroklowi?rpxt=ZDNlZDc0MzIxNw%3D%3D"
+               target="_blank"
+               rel="noopener noreferrer">
+                <div class="social-icon">◎</div>
+                <div>
+                    <h3>Instagram</h3>
+                    <p>@roroklowi</p>
+                </div>
+                <span style="margin-left:auto;color:var(--cyan)">↗</span>
+            </a>
+
+            <a class="social-card"
+               href="https://www.tiktok.com/@axdraha1?is_from_webapp=1&sender_device=pc"
+               target="_blank"
+               rel="noopener noreferrer">
+                <div class="social-icon">♪</div>
+                <div>
+                    <h3>TikTok</h3>
+                    <p>@axdraha1</p>
+                </div>
+                <span style="margin-left:auto;color:var(--cyan)">↗</span>
+            </a>
+
+            <a class="social-card"
+               href="https://www.youtube.com/@axdraha-b9l"
+               target="_blank"
+               rel="noopener noreferrer">
+                <div class="social-icon">▶</div>
+                <div>
+                    <h3>YouTube</h3>
+                    <p>AXDRAHA</p>
+                </div>
+                <span style="margin-left:auto;color:var(--cyan)">↗</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- YOUTUBE -->
+    <section class="section" id="youtube">
+        <div class="youtube-panel">
+            <div>
+                <div class="youtube-mark">▶️</div>
+                <div class="eyebrow">My YouTube Channel</div>
+
+                <h2>
+                    <span class="gradient-text">AXDRAHA</span>
+                </h2>
+
+                <p>Gaming | Vlog | Fun</p>
+            </div>
+
+            <div>
+                <h3>Let's Play Together!</h3>
+                <p>
+                    Suka konten gaming dan hiburan?
+                    Kunjungi channel YouTube-ku untuk melihat
+                    video terbaru.
+                </p>
+
+                <a class="btn btn-primary"
+                   href="https://www.youtube.com/@axdraha-b9l"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ▶ SUBSCRIBE AXDRAHA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
         <p>
-            Halo semuanya! 👋<br>
-            Selamat datang di website resmi Axdraha!
-            Terima kasih sudah berkunjung.
-            Di channel ini kalian bisa menemukan
-            berbagai video menarik dan hiburan seru.
-            Jangan lupa subscribe dan aktifkan lonceng
-            notifikasi agar tidak ketinggalan video terbaru!
+            © 2026 <strong>AXDRAHA</strong>
+            | Made with 💜
         </p>
+        <p>Thanks for visiting my official profile website!</p>
+    </footer>
 
-        <a
-            class="youtube"
-            href="https://www.youtube.com/@axdraha-b9l"
-            target="_blank"
-            rel="noopener noreferrer">
-            ▶ SUBSCRIBE AXDRAHA
-        </a>
-
-        <footer>
-            © 2026 AXDRAHA | Thanks for visiting!
-        </footer>
-
-    </div>
 </body>
 </html>
